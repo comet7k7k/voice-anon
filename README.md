@@ -65,7 +65,7 @@ data/                # 测试音频、评测数据（gitignore）
 
 ## 情感原型（论文核心模块，已实做）
 
-1. 下载 RAVDESS 数据集（约 150MB，官网免费）；
+1. 下载 RAVDESS 数据集（语音部分约 208MB，官网免费）；
 2. 计算真实质心：
    ```bash
    python scripts/compute_emotion_prototypes.py --data_dir D:/RAVDESS --out data/emotion_prototypes.npy
@@ -87,7 +87,7 @@ data/                # 测试音频、评测数据（gitignore）
 | 文件 | 大小 | 用途 | 放置位置 |
 |---|---|---|---|
 | `small.en.pt` | ~461 MB | Whisper-small.en | `~/.cache/whisper/small.en.pt` |
-| `tts_models--en--ljspeech--vits/` | ~278 MB | VITS LJ Speech | `~/.local/share/tts/tts_models--en--ljspeech--vits/` |
+| `tts_models--en--ljspeech--vits/`（config.json + model_file.pth） | ~145 MB | VITS LJ Speech | `~/.local/share/tts/tts_models--en--ljspeech--vits/` |
 
 百度网盘链接：https://pan.baidu.com/s/1rI8gQftydnkzUqLcVg0IPg?pwd=wqcx （提取码：wqcx）
 

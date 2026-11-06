@@ -7,7 +7,7 @@
   4. wav2vec2 SER 情感推理（SUPERB ER，CPU / CUDA）
 
 用法（在 voice-anon 根目录）：
-    & 'D:\python-3.10\python.exe' scripts\bench_gpu.py --wav data\test_en.wav
+    python scripts/bench_gpu.py --wav data/test_en.wav
 输出各设备耗时秒数（多次取最小，减少抖动）。
 
 说明：GPU 推理在相同环境内通过 device 参数切换测量，CPU 模式不要求 CPU 版 torch。
