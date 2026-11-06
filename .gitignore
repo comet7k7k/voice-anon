@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 模型权重与 checkpoint 不进 git（按作业要求传百度网盘并在 README 放链接）
+weights/
+wav2vec2_checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.bin
+
+# 音频与实验输出（不进 git）
+*.wav
+*.flac
+outputs/
+outputs_gpu/
+outputs_no_proto/
+outputs_proto_r2/
+data/
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store

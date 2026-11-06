@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>语音匿名化演示</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #22303f; }
+    h1 { font-size: 22px; }
+    .card { border: 1px solid #d7dee6; border-radius: 10px; padding: 16px; margin-bottom: 16px; background: #fff; }
+    button { background: #1f3b57; color: #fff; border: 0; border-radius: 6px; padding: 10px 20px; cursor: pointer; font-size: 15px; }
+    #result { white-space: pre-wrap; background: #f4f7fa; border-radius: 6px; padding: 10px; }
+    audio { width: 100%; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>语音匿名化演示（Lee et al. SPSC 2024）</h1>
+  <div class="card">
+    <input type="file" id="wav" accept="audio/wav,audio/x-wav">
+    <p><button onclick="run()">上传并匿名化</button></p>
+  </div>
+  <div class="card">
+    <b>结果：</b>
+    <div id="result">尚未运行</div>
+    <audio id="player" controls></audio>
+  </div>
+  <script>
+    async function run() {
+      const f = document.getElementById('wav').files[0];
+      if (!f) { alert('请先选择 wav 文件'); return; }
+      const fd = new FormData(); fd.append('file', f);
+      document.getElementById('result').textContent = '处理中…';
+      const r = await fetch('/anonymize', { method: 'POST', body: fd });
+      const j = await r.json();
+      document.getElementById('result').textContent = JSON.stringify(j, null, 2);
+      if (j.download_url) document.getElementById('player').src = j.download_url;
+    }
+  </script>
+</body>
+</html>

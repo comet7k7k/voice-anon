@@ -1,0 +1,25 @@
+# Voice Anonymization - Python 3.10
+# 安装 PyTorch（CUDA 12.1）必须先单独执行：
+#   pip install torch==2.5.1+cu121 torchaudio==2.5.1+cu121 --index-url https://download.pytorch.org/whl/cu121
+# 不要加 --extra-index-url 到 PyPI，否则会静默 fallback 到 CPU 版 manylinux wheel。
+# 装完后用 `python -c "import torch; print(torch.cuda.is_available())"` 验证输出 True。
+
+# --- 核心模型与推理（服务器实测通过版本） ---
+TTS==0.22.0
+openai-whisper>=20231117
+transformers==5.20.2
+librosa==0.10.0
+soundfile>=0.12.1
+numpy==1.22.0
+scipy==1.11.4
+
+# --- Web 服务 ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+jinja2>=3.1
+
+# --- 评测脚本（可选，跑 WER/EER/UAR 时需要） ---
+jiwer>=3.0
+speechbrain>=0.5.18
+matplotlib>=3.7
